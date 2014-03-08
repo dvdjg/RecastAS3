@@ -5,30 +5,16 @@ package
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
 	import flash.events.Event;
-	import flash.events.KeyboardEvent;
 	import flash.events.MouseEvent;
 	import flash.geom.Point;
 	import flash.geom.Vector3D;
-	import flash.ui.Keyboard;
 	import flash.utils.ByteArray;
 	import flash.utils.Dictionary;
 	import flash.utils.getTimer;
 	import flash.utils.setTimeout;
-	import org.recastnavigation.AS3_rcContext;
+	
 	import org.recastnavigation.CModule;
-	import org.recastnavigation.dtCrowd;
-	import org.recastnavigation.dtCrowdAgent;
-	import org.recastnavigation.dtCrowdAgentDebugInfo;
-	import org.recastnavigation.dtCrowdAgentParams;
-	import org.recastnavigation.dtMeshHeader;
-	import org.recastnavigation.dtMeshTile;
-	import org.recastnavigation.dtNavMesh;
-	import org.recastnavigation.dtNavMeshQuery;
-	import org.recastnavigation.dtPoly;
-	import org.recastnavigation.dtPolyDetail;
-	import org.recastnavigation.InputGeom;
 	import org.recastnavigation.rcMeshLoaderObj;
-	import org.recastnavigation.Sample_TempObstacles;
 	import org.recastnavigation.util.getTiles;
 	
 	/**

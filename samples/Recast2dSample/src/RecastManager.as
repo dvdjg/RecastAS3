@@ -1,24 +1,20 @@
 package  
 {
-	import flash.events.MouseEvent;
 	import flash.geom.Vector3D;
 	import flash.utils.ByteArray;
+	
+	import org.recastnavigation.AS3_rcContext;
+	import org.recastnavigation.CModule;
+	import org.recastnavigation.InputGeom;
+	import org.recastnavigation.Sample_TempObstacles;
 	import org.recastnavigation._wrap_DT_CROWD_ANTICIPATE_TURNS;
 	import org.recastnavigation._wrap_DT_CROWD_OBSTACLE_AVOIDANCE;
 	import org.recastnavigation._wrap_DT_CROWD_OPTIMIZE_TOPO;
 	import org.recastnavigation._wrap_DT_CROWD_OPTIMIZE_VIS;
-	import org.recastnavigation._wrap_DT_CROWD_SEPARATION;
-	
-	import org.recastnavigation.AS3_rcContext;
-	import org.recastnavigation.CModule;
 	import org.recastnavigation.dtCrowd;
 	import org.recastnavigation.dtCrowdAgent;
-	import org.recastnavigation.dtCrowdAgentDebugInfo;
 	import org.recastnavigation.dtCrowdAgentParams;
 	import org.recastnavigation.dtNavMeshQuery;
-	import org.recastnavigation.InputGeom;
-	import org.recastnavigation.rcMeshLoaderObj;
-	import org.recastnavigation.Sample_TempObstacles;
 	/**
 	 * Example manager class for Recast Detour Path finding
 	 */

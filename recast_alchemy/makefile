@@ -100,15 +100,17 @@ swig:
 	
 	#swig from recast.i file
 	# Generate the SWIG wrappers
-	PATH="$(call unixpath,$(FLASCC)/usr/bin):$(PATH)" swig -as3 -package org.recastnavigation -c++ -DBT_USE_DOUBLE_PRECISION $(ALL_INCS) -module Recast recast.i &> build/swig.log
+	#PATH="$(call unixpath,$(FLASCC)/usr/bin):$(PATH)" 
+	swig -as3 -package org.recastnavigation -c++ -DBT_USE_DOUBLE_PRECISION $(ALL_INCS) -module Recast recast.i &> build/swig.log
 	mv Recast_wrap.cxx build
 	mv Recast.as build
 	
 	# Compile the SWIG AS3 wrappers
-	java -jar $(call nativepath,$(FLASCC)/usr/lib/asc2.jar) -import $(call nativepath,$(FLASCC)/usr/lib/builtin.abc) -import $(call nativepath,$(FLASCC)/usr/lib/playerglobal.abc) build/Recast.as
+	java -jar "C:\Crossbridge\sdk\usr\lib\asc2.jar" -import "C:\Crossbridge\sdk\usr\lib\builtin.abc" -import "C:\Crossbridge\sdk\usr\lib\playerglobal.abc" build/Recast.as
 
 	# Compile the SWIG C++ wrappers
-	PATH="$(call unixpath,$(FLASCC)/usr/bin):$(PATH)" g++ $(BASE_CFLAGS) $(CFLAGS) -DBT_USE_DOUBLE_PRECISION $(ALL_INCS) build/Recast_wrap.cxx -c &> build/swig_wrapper.log
+	#PATH="$(call unixpath,$(FLASCC)/usr/bin):$(PATH)" 
+	g++ $(BASE_CFLAGS) $(CFLAGS) -DBT_USE_DOUBLE_PRECISION $(ALL_INCS) build/Recast_wrap.cxx -c &> build/swig_wrapper.log
 	mv Recast_wrap.o build
 
 	# protect the required symbols in the LTO exports file
@@ -117,7 +119,8 @@ swig:
 	#PATH="$(call unixpath,$(FLASCC)/usr/bin):$(PATH)" nm build/Recast_wrap.o | grep " T " | awk '{print $$3}' | sed 's/__/_/' >> build/exports.txt
 
 	# Link the final library
-	PATH="$(call unixpath,$(FLASCC)/usr/bin):$(PATH)" g++ -jvmopt=-Xmx1G $(BASE_CFLAGS) -DBT_USE_DOUBLE_PRECISION $(ALL_INCS) main.cpp \
+	#PATH="$(call unixpath,$(FLASCC)/usr/bin):$(PATH)" 
+	g++ -jvmopt=-Xmx1G $(BASE_CFLAGS) -DBT_USE_DOUBLE_PRECISION $(ALL_INCS) main.cpp \
 	$(ALL_OBJS) ./build/Recast_wrap.o ./build/Recast.abc \
 	-Wl,--start-group \
 	-Wl,--end-group \
