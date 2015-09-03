@@ -235,8 +235,6 @@ package
 			}
 			debugDrawMesh(tris, verts); //try obj mesh
 			
-			
-			
 			//now draw the actual nav mesh
 			//debugDrawNavMesh();
 			var tiles:Array = getTiles(recastManager.sample.swigCPtr);
